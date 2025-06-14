@@ -1,80 +1,32 @@
-# Daily Logs - Backend API
+# Daily Thoughts API
 
-This is a *Node.js + Express + MongoDB backend API* for a Daily Logs application.  
-It lets *registered and authenticated users*:
+🚀 *A simple API that lets users track their daily thoughts.*
 
-✅ Register and login  
-✅ Add daily entries  
-✅ View their own entries  
+Using *![Node.js](https://nodejs.org/static/images/logo.svg)* Node.js, Express, Mongoose, JWT for authentication, and bcrypt for password hashing.
 
-The API uses *JWT authentication* and *bcrypt password hashing*.
+This API allows:
 
----
-
-## 🔹 Tech Stack:
-
-- *Node.js*
-- *Express*
-- *Mongoose (for accessing MongoDB)*
-- *JWT for authentication*
-- *bcrypt for password hashing*
+- User registration and login.
+- Adding daily entries (up to 30 words).
+- Viewing all entries of a particular user.
+- Token authentication for securing routes.
 
 ---
 
-## 🔹 API Endpoints:
+## API Endpoints
 
-✅ POST /api/auth/register — Register a new user  
-✅ POST /api/auth/login — Log in and receive a JWT  
-✅ POST /api/entry/add — Add a new daily entry (protected, requires JWT)  
-✅ GET /api/entry/my-entries — Retrieve all entries for the authenticated user (protected, requires JWT)
-
----
-
-## 🔹 Installation:
-
-1. *Clone this repository:*
-bash
-git clone https://github.com/your-username/daily-logs-backend.git
-
-
-2. *Install the dependencies:*
-bash
-npm install
-
-
-3. **Create a .env file in the root directory with the following:**
-
-MONGODB_URL=<your-mongodb-connection-string>
-JWT_SECRET=<your-jwt-secret>
-
-
-4. *Start the server:*
-bash
-npm start
+| Method | Route | Description |
+|---------|---------|---------|
+| *POST* | /api/auth/register | Register a new user |
+| *POST* | /api/auth/login | Log in and retrieve a JWT |
+| *POST* | /api/entry/add | Add a daily entry (protected) |
+| *GET* | /api/entry/mylogs | View all your entries (protected) | 
 
 
 ---
 
-## 🔹 Notes:
+## Summary
 
-- The API expects requests to be made with *Bearer Token Authentication* for protected routes.
-- Passwords are hashed and never stored in plain text.
+Using *Hugging Face API*, this application highlights the main points of each daily entry and shows all your previous entries in a simple way.
 
 ---
-
-## 🔹 Suggested directory structure:
-
-
-daily-logs-backend/
-├── .env
-├── package.json
-├── app.js
-├── models/
-│ ├─ User.js
-│ └─Entry.js
-├── routes/
-│ ├─ auth.js
-│ └─ entry.js
-├── middleware/
-│ └─ auth.js
-├── README.md
